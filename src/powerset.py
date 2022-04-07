@@ -16,10 +16,4 @@ def power(x: list[Any]) -> list[list[Any]]:
     >>> power([1, 2])
     [[], [1], [2], [1, 2]]
     """
-    n = 2**len(x)
-    res = []
-    for i in range(n):
-        bits = format(i, "b").zfill(len(x))
-        elements = [i for i, b in enumerate(bits) if b == '1']
-        res.append([x[j] for j in elements])
-    return res
+    return []  # FIXME: you need to add some code here.
