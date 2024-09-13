@@ -9,4 +9,18 @@ def power(x: list[Any]) -> list[list[Any]]:
 
     Returns the power-set of x as a list of lists.
     """
-    return []  # FIXME: you need to add some code here.
+
+    def recursion(_list, res, n):
+        if n == 0:
+            return [res.copy()]
+        res.append(_list[n - 1])
+        with_element = recursion(_list, res, n - 1)
+        res.pop()
+        without_element = recursion(_list, res, n - 1)
+        return with_element + without_element
+
+    list_length, ans = len(x), []
+    return recursion(x, ans, list_length)
+
+
+print(power([1, 2]))
